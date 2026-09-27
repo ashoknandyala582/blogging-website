@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TravelGo - Travel & Bus Booking</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+
+<body>
+
+
+<!-- ================================================= -->
+<!-- HEADER -->
+<!-- ================================================= -->
+
+<header>
+
+    <div class="logo">
+        🌍 TravelGo
+    </div>
+
+    <nav>
+
+        <a onclick="showPage('home')">Home</a>
+
+        <a onclick="showPage('buses')">
+            🚌 Bus Booking
+        </a>
+
+        <a onclick="showPage('blogs')">
+            📖 Blogs
+        </a>
+
+        <a onclick="showPage('bookings')">
+            🎫 My Bookings
+        </a>
+
+        <a onclick="showPage('login')">
+            🔐 Login
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- ================================================= -->
+<!-- HOME PAGE -->
+<!-- ================================================= -->
+
+<div id="home" class="page active">
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Explore India With TravelGo
+            </h1>
+
+            <p>
+                Book buses • Explore destinations • Share stories
+            </p>
+
+            <button
+                class="btn"
+                onclick="showPage('buses')">
+
+                🚌 Book Your Bus
+
+            </button>
+
+            <button
+                class="btn secondary"
+                onclick="showPage('blogs')">
+
+                📖 Explore Blogs
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- SEARCH -->
+
+    <div class="search-section">
+
+        <h2>
+            🔍 Search Bus Tickets
+        </h2>
+
+        <div class="search-form">
+
+            <div>
+
+                <label>From</label>
+
+                <select id="fromCity">
+
+                    <option value="">
+                        Select City
+                    </option>
+
+                    <option>Hyderabad</option>
+                    <option>Bangalore</option>
+                    <option>Chennai</option>
+                    <option>Mumbai</option>
+                    <option>Delhi</option>
+                    <option>Goa</option>
+
+                </select>
+
+            </div>
+
+
+            <div>
+
+                <label>To</label>
+
+                <select id="toCity">
+
+                    <option value="">
+                        Select City
+                    </option>
+
+                    <option>Hyderabad</option>
+                    <option>Bangalore</option>
+                    <option>Chennai</option>
+                    <option>Mumbai</option>
+                    <option>Delhi</option>
+                    <option>Goa</option>
+
+                </select>
+
+            </div>
+
+
+            <div>
+
+                <label>Travel Date</label>
+
+                <input
+                    type="date"
+                    id="travelDate">
+
+            </div>
+
+
+            <div>
+
+                <label>&nbsp;</label>
+
+                <button
+                    class="btn"
+                    onclick="searchBus()">
+
+                    Search
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- DESTINATIONS -->
+
+    <section>
+
+        <h2>
+            🌎 Popular Destinations
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>🏖️ Goa</h3>
+
+                <p>
+                    Beautiful beaches, sunsets,
+                    adventure and amazing food.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🏰 Rajasthan</h3>
+
+                <p>
+                    Explore historical forts,
+                    palaces and culture.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🌴 Kerala</h3>
+
+                <p>
+                    Experience peaceful backwaters
+                    and natural beauty.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🏙️ Hyderabad</h3>
+
+                <p>
+                    Explore history, food,
+                    technology and culture.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section>
+
+        <h2>
+            ⭐ Why TravelGo?
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>🚌 Easy Bus Booking</h3>
+
+                <p>
+                    Search and book buses easily.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🔐 Secure Login</h3>
+
+                <p>
+                    Create your account and
+                    manage your bookings.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>📖 Travel Blogs</h3>
+
+                <p>
+                    Read and share travel experiences.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>📱 Responsive</h3>
+
+                <p>
+                    Works on desktop, tablet and mobile.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- LOGIN PAGE -->
+<!-- ================================================= -->
+
+<div id="login" class="page">
+
+    <div class="form-container">
+
+        <h1>🔐 Login</h1>
+
+        <p>
+            Login to your TravelGo account
+        </p>
+
+
+        <label>Email</label>
+
+        <input
+            type="email"
+            id="loginEmail"
+            placeholder="Enter email">
+
+
+        <label>Password</label>
+
+        <input
+            type="password"
+            id="loginPassword"
+            placeholder="Enter password">
+
+
+        <button
+            class="btn"
+            onclick="loginUser()">
+
+            Login
+
+        </button>
+
+
+        <p>
+            Don't have an account?
+            <a
+                onclick="showPage('register')"
+                style="color:#0066cc;cursor:pointer">
+
+                Register
+
+            </a>
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- REGISTER PAGE -->
+<!-- ================================================= -->
+
+<div id="register" class="page">
+
+    <div class="form-container">
+
+        <h1>📝 Register</h1>
+
+        <p>
+            Create your TravelGo account
+        </p>
+
+
+        <label>Name</label>
+
+        <input
+            type="text"
+            id="registerName"
+            placeholder="Enter name">
+
+
+        <label>Email</label>
+
+        <input
+            type="email"
+            id="registerEmail"
+            placeholder="Enter email">
+
+
+        <label>Password</label>
+
+        <input
+            type="password"
+            id="registerPassword"
+            placeholder="Create password">
+
+
+        <label>Confirm Password</label>
+
+        <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm password">
+
+
+        <button
+            class="btn"
+            onclick="registerUser()">
+
+            Create Account
+
+        </button>
+
+
+        <p>
+
+            Already have an account?
+
+            <a
+                onclick="showPage('login')"
+                style="color:#0066cc;cursor:pointer">
+
+                Login
+
+            </a>
+
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- BUSES PAGE -->
+<!-- ================================================= -->
+
+<div id="buses" class="page">
+
+    <div class="page-title">
+
+        <h1>
+            🚌 Available Buses
+        </h1>
+
+        <p>
+            Select a bus and continue booking
+        </p>
+
+    </div>
+
+
+    <section>
+
+        <div class="cards">
+
+
+            <!-- BUS 1 -->
+
+            <div class="bus-card">
+
+                <h2>
+                    TravelGo Express
+                </h2>
+
+                <p>
+                    📍 Hyderabad → Bangalore
+                </p>
+
+                <p>
+                    🕘 09:00 PM → 07:00 AM
+                </p>
+
+                <p>
+                    💺 Seats Available: 24
+                </p>
+
+                <h2>
+                    ₹850
+                </h2>
+
+                <button
+                    class="btn"
+                    onclick="selectBus(
+                    'TravelGo Express',
+                    'Hyderabad',
+                    'Bangalore',
+                    850
+                    )">
+
+                    Book Now
+
+                </button>
+
+            </div>
+
+
+            <!-- BUS 2 -->
+
+            <div class="bus-card">
+
+                <h2>
+                    GreenLine Travels
+                </h2>
+
+                <p>
+                    📍 Hyderabad → Chennai
+                </p>
+
+                <p>
+                    🕘 08:30 PM → 07:30 AM
+                </p>
+
+                <p>
+                    💺 Seats Available: 18
+                </p>
+
+                <h2>
+                    ₹950
+                </h2>
+
+                <button
+                    class="btn"
+                    onclick="selectBus(
+                    'GreenLine Travels',
+                    'Hyderabad',
+                    'Chennai',
+                    950
+                    )">
+
+                    Book Now
+
+                </button>
+
+            </div>
+
+
+            <!-- BUS 3 -->
+
+            <div class="bus-card">
+
+                <h2>
+                    Royal Roadways
+                </h2>
+
+                <p>
+                    📍 Bangalore → Goa
+                </p>
+
+                <p>
+                    🕘 10:00 PM → 06:00 AM
+                </p>
+
+                <p>
+                    💺 Seats Available: 15
+                </p>
+
+                <h2>
+                    ₹750
+                </h2>
+
+                <button
+                    class="btn"
+                    onclick="selectBus(
+                    'Royal Roadways',
+                    'Bangalore',
+                    'Goa',
+                    750
+                    )">
+
+                    Book Now
+
+                </button>
+
+            </div>
+
+
+            <!-- BUS 4 -->
+
+            <div class="bus-card">
+
+                <h2>
+                    Sunrise Travels
+                </h2>
+
+                <p>
+                    📍 Mumbai → Goa
+                </p>
+
+                <p>
+                    🕘 09:30 PM → 05:30 AM
+                </p>
+
+                <p>
+                    💺 Seats Available: 20
+                </p>
+
+                <h2>
+                    ₹700
+                </h2>
+
+                <button
+                    class="btn"
+                    onclick="selectBus(
+                    'Sunrise Travels',
+                    'Mumbai',
+                    'Goa',
+                    700
+                    )">
+
+                    Book Now
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- BOOKING PAGE -->
+<!-- ================================================= -->
+
+<div id="booking" class="page">
+
+    <div class="form-container">
+
+        <h1>
+            🎫 Bus Booking
+        </h1>
+
+
+        <div id="selectedBus">
+
+        </div>
+
+
+        <label>
+            Passenger Name
+        </label>
+
+        <input
+            type="text"
+            id="passengerName"
+            placeholder="Passenger name">
+
+
+        <label>
+            Age
+        </label>
+
+        <input
+            type="number"
+            id="passengerAge"
+            placeholder="Age">
+
+
+        <label>
+            Gender
+        </label>
+
+        <select id="gender">
+
+            <option value="">
+                Select Gender
+            </option>
+
+            <option>Male</option>
+
+            <option>Female</option>
+
+            <option>Other</option>
+
+        </select>
+
+
+        <label>
+            Number of Seats
+        </label>
+
+        <input
+            type="number"
+            id="seatCount"
+            value="1"
+            min="1"
+            max="5">
+
+
+        <button
+            class="btn"
+            onclick="confirmBooking()">
+
+            Confirm Booking
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- MY BOOKINGS PAGE -->
+<!-- ================================================= -->
+
+<div id="bookings" class="page">
+
+    <div class="page-title">
+
+        <h1>
+            🎫 My Bookings
+        </h1>
+
+        <p>
+            Your booking history
+        </p>
+
+    </div>
+
+
+    <section>
+
+        <div id="bookingList">
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- BLOG PAGE -->
+<!-- ================================================= -->
+
+<div id="blogs" class="page">
+
+    <div class="page-title">
+
+        <h1>
+            📖 Travel Blogs
+        </h1>
+
+        <p>
+            Discover travel stories from different places
+        </p>
+
+        <button
+            class="btn"
+            onclick="showPage('createBlog')">
+
+            ✍️ Create Blog
+
+        </button>
+
+    </div>
+
+
+    <section>
+
+        <div
+            id="blogList"
+            class="cards">
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- CREATE BLOG PAGE -->
+<!-- ================================================= -->
+
+<div id="createBlog" class="page">
+
+    <div class="form-container">
+
+        <h1>
+            ✍️ Create Travel Blog
+        </h1>
+
+        <p>
+            Share your travel experience
+        </p>
+
+
+        <label>
+            Blog Title
+        </label>
+
+        <input
+            type="text"
+            id="blogTitle"
+            placeholder="Enter blog title">
+
+
+        <label>
+            Destination
+        </label>
+
+        <input
+            type="text"
+            id="blogDestination"
+            placeholder="Example: Goa">
+
+
+        <label>
+            Blog Image URL
+        </label>
+
+        <input
+            type="text"
+            id="blogImage"
+            placeholder="Paste image URL">
+
+
+        <label>
+            Your Story
+        </label>
+
+        <textarea
+            id="blogContent"
+            rows="8"
+            placeholder="Write your travel experience...">
+        </textarea>
+
+
+        <button
+            class="btn"
+            onclick="createBlog()">
+
+            Publish Blog
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- BLOG DETAILS PAGE -->
+<!-- ================================================= -->
+
+<div id="blogDetails" class="page">
+
+    <article
+        id="blogDetailContent"
+        class="blog-detail">
+
+    </article>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- FOOTER -->
+<!-- ================================================= -->
+
+<footer>
+
+    <h2>
+        🌍 TravelGo
+    </h2>
+
+    <p>
+        Travel • Explore • Share
+    </p>
+
+    <p>
+        © 2026 TravelGo
+    </p>
+
+</footer>
+
+
+<!-- ================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================================= -->
+
+<script src="script.js"></script>
+
+
+</body>
+</html>
